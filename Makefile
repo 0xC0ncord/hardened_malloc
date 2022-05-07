@@ -45,6 +45,7 @@ ifeq ($(CONFIG_CXX_ALLOCATOR),true)
     # make sure LTO is compatible in case CC and CXX don't match (such as clang and g++)
     CXX := $(CC)
     ifeq ($(CONFIG_USE_LIBCXX),true)
+        CXXFLAGS += -stdlib=libc++
         LDLIBS += -lc++
     else
         LDLIBS += -lstdc++
